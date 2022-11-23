@@ -15,13 +15,14 @@ export default function Home() {
   const [org, setOrg] = useState<String>("");
   const [as, setAs] = useState<String>("");
   const [tryip, setTryip] = useState<Number>(0);
+  const [query, setQuery] = useState<String>("");
 
   const submit = async (e: any) => {
     e.preventDefault()
     const res = await fetch("http://ip-api.com/json/" + ip, {
       method: "GET"
     }).then(res => res.json())
-
+    setQuery(res.query)
     if (res.status === "fail") {
       alert(res.message + "\n" + res.query);
       setTryip(0);
@@ -52,16 +53,25 @@ export default function Home() {
 
       <form onSubmit={submit} method="GET">
         <input type={"text"} placeholder='internet protocol' onChange={(e) => setIp(e.target.value)} />
-        <input type={"submit"} value="정보 확인" />
+        <input type={"submit"} value="정보 확인" style={{ marginLeft: "5px" }} />
       </form>
 
       {tryip === 1 ?
         <>
           <hr/>
-          <h3>ip: {ip}</h3>
+          <h3>ip: {query}</h3>
+          <h3>isp: {isp}</h3>
+          <h3>org: {org}</h3>
+          <h3>as: {as}</h3>
           <h3>countryCode: {countryCode}</h3>
           <h3>country: {country}</h3>
           <h3>region: {region}</h3>
+          <h3>regionName: {regionName}</h3>
+          <h3>city: {city}</h3>
+          <h3>zip: {zip}</h3>
+          <h3>lat: {pos[0]}</h3>
+          <h3>lon: {pos[1]}</h3>
+          <h3>timezone: {timezone}</h3>
           <hr/>
         </>  
       :
