@@ -19,3 +19,6 @@ yarn & yarn dev
 [API routes](https://nextjs.org/docs/api-routes/introduction) [http://localhost:3000/api](http://localhost:3000/api)에서 api를 수정하여 사용하실 수 있습니다.
 
 `/api/*`는 `pages/api` 디렉터리에서 매핑 됩니다. 이 디렉터리는 React 페이지 대신 [API routes](https://nextjs.org/docs/api-routes/introduction)로 처리 됩니다. 
+
+# image
+![](https://user-images.githubusercontent.com/84012697/203458076-1c8cb963-f172-47d0-b232-1faa6e45c690.PNG)
